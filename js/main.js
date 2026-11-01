@@ -1,16 +1,16 @@
-import {products} from "./storage.js";
+import { products } from "./storage.js";
 products();
-const contenaire=document.querySelector("#products");
-async function pro(){
+const contenaire = document.querySelector("#products");
+async function pro() {
     const data = await products();
-    if (!data) 
+    if (!data)
         return;
 
     data.forEach(element => {
 
         // console.log(products.name);
-const card = document.createElement("div")
-card.innerHTML=`
+        const card = document.createElement("div")
+        card.innerHTML = `
 <img src='${element.image}' class="w-full h-48 object-cover">
 <div class="p-2 flex flex-col gap-3">
 <h3 class="text-lg font-bold text-gray-800 ">${element.name}<h3> 
@@ -19,8 +19,16 @@ card.innerHTML=`
 <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 font-bold transition">Ajouter</button>
 </div>
 
-`        
-;
+`
+            ;
+
+        contenaire.appendChild(card);
+
+    });
+
+}
+
+console.log(pro());
 
 
 
@@ -58,10 +66,3 @@ card.innerHTML=`
 //         </div>
 
 
-
-contenaire.appendChild(card);
-
-    });
-
-}
-console.log(pro());
